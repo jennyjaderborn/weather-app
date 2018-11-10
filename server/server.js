@@ -27,7 +27,9 @@ app.get('/', (req, res) => {
 
 
 app.post('/',(req, res) => {
-    let url = 'http://api.openweathermap.org/data/2.5/weather?q=London,uk&units=metric&APPID=52bca177990ef3a0fafe3e3dbef8fbbc';
+    let city = req.body.city;
+    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=52bca177990ef3a0fafe3e3dbef8fbbc`;
+    console.log(req.body.city);
 
     request(url, (err, response, body) => {
         if(err){
@@ -42,22 +44,6 @@ app.post('/',(req, res) => {
 
     })
     }); 
-
-    /*app.get('/weather', (req, res) => {
-        res.render('index');
-    });*/
-
-    /*app.post('/weather', (req, res) => {
-        //res.cookie('city', req.body.city);
-        console.log('click');
-        console.log(req.body.city);
-        res.cookie('city', req.body.city);
-        res.redirect('/');
-    });*/
-
-
-
-
 
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))
