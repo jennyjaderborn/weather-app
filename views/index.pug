@@ -2,9 +2,11 @@ extends app.pug
 
 block intro
     h1 Let's get started! 
-    form.namecard-form(action='/', method='post')
-    label.namecard-prompt write your city:
-      input.namecard-name(type='text', name='city')
-    button.namecard-submit(type='submit') Submit
+    form(action='/', method='post')
+        label write your city:
+        input(type='text', name='city')
+        button(type='submit') Submit
+    
     h1= `${weather}`
 
+    
