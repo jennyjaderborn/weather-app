@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Easy weather map, just for learning. ",
   "main": "server.js",
+  "engines": {
+    "node": "11.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd server && nodemon server.js"
