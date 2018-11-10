@@ -6,7 +6,8 @@ const router = express.Router();
 const path = require('path');
 
 
-app.use(express.static( '../public/'));
+//app.use(express.static( '../public/'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 
 //tells express which template we are going to use: pug
