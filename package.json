@@ -1,0 +1,24 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Easy weather map, just for learning. ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd server && nodemon server.js"
+  },
+  "keywords": [
+    "node js",
+    "api",
+    "weather"
+  ],
+  "author": "Jenny Jäderborn",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.6",
+    "pug": "^2.0.3",
+    "request": "^2.88.0"
+  }
+}
