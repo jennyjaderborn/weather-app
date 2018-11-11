@@ -22,7 +22,7 @@ app.set('views', path.join(__dirname, '../views'));
 
 
 app.get('/', (req, res) => {
-    res.render('index', {weather: null, error: null});
+    res.render('index', {weather: 'Select a city first..', error: null});
   })
 
 
@@ -33,13 +33,20 @@ app.post('/',(req, res) => {
 
     request(url, (err, response, body) => {
         if(err){
-            res.render('index', {weather: null, error: 'Error, please try again'})
+            res.render('index', {weather: null, error: 'Error, please try again'});
         } else {
         let weather = JSON.parse(body);
-        let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
+        console.log(weather.weather[0].description);
+        if(weather.main == undefined){
+            res.render('index', {weather: null, error: 'Error, please try again'});
+          } else {
+
+        let weatherText = `It's ${weather.main.temp} degrees in ${weather.name} and ${weather.weather[0].description}!`;
         console.log(weatherText)
 
-        res.render('index', {weather: weatherText}); 
+        res.render('index', {weather: weatherText, error: null}); 
+
+          }
         }
 
     })

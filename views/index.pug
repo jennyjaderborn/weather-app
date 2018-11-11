@@ -1,12 +1,14 @@
 extends app.pug 
 
 block intro
-    h1 Let's get started! 
-    form(action='/', method='post')
-        label write your city:
-        input(type='text', name='city')
-        button(type='submit') Submit
-    
-    h1= `${weather}`
+    section(class=`wrapper`)
+        h1 Weather! 
+       
+        
+        if weather 
+            h1= weather
+            
+        if error 
+            h1= error
 
-    
+        
