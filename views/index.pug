@@ -2,11 +2,13 @@ extends app.pug
 
 block intro
     section(class=`wrapper`)
-        h1 Weather! 
+        div.cityHeadLine
+            h1= city 
+            img(src= flag)
        
         
         if weather 
-            h1= weather
+            p= weather
             img(src= icon)
             
         if error 

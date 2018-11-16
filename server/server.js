@@ -47,10 +47,13 @@ app.post('/',(req, res) => {
 
         let iconId = weather.weather[0].icon;
          icon = `http://openweathermap.org/img/w/${iconId}.png`;
+
+        let country = weather.sys.country;
+        let countryFlag = `https://www.countryflags.io/${country}/shiny/48.png`;
         console.log(weatherText)
         console.log(weather);
 
-        res.render('index', {weather: weatherText, error: null, icon}); 
+        res.render('index', {weather: weatherText, city: weather.name, flag: countryFlag, error: null, icon}); 
 
           }
         }
