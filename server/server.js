@@ -26,6 +26,8 @@ app.get('/', (req, res) => {
   })
 
 
+//hide apikey
+
 app.post('/',(req, res) => {
     let city = req.body.city;
     let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=52bca177990ef3a0fafe3e3dbef8fbbc`;
@@ -42,9 +44,13 @@ app.post('/',(req, res) => {
           } else {
 
         let weatherText = `It's ${weather.main.temp} degrees in ${weather.name} and ${weather.weather[0].description}!`;
-        console.log(weatherText)
 
-        res.render('index', {weather: weatherText, error: null}); 
+        let iconId = weather.weather[0].icon;
+         icon = `http://openweathermap.org/img/w/${iconId}.png`;
+        console.log(weatherText)
+        console.log(weather);
+
+        res.render('index', {weather: weatherText, error: null, icon}); 
 
           }
         }
