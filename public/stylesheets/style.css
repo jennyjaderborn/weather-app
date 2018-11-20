@@ -42,7 +42,7 @@ form {
     display: flex;
     flex-direction: column;
     height: 60%;
-    width: 30vh;
+    width: 40vh;
     background: white;
     border: 1px solid lightgray;
     border-radius: 5px;
@@ -90,6 +90,12 @@ h1 {
     justify-content: space-between;
 }
 
+.weatherBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
   @media (min-width: 320px) and (max-width: 680px) {
   
@@ -127,7 +133,10 @@ h1 {
   @media (min-width: 568px) and (max-width: 1024px) and (orientation: landscape) {
     form {
         width: 50%;
-        height: 60%;
+        height: 80%;
+    }
+    header {
+        height: 60vh;
     }
   }
 
