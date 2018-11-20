@@ -5,11 +5,11 @@ const request = require('request');
 const router = express.Router();
 const path = require('path');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser')
+require('dotenv').config();
+
+let apiKey = process.env.MY_KEY;
 
 app.use(bodyParser.urlencoded({extended: false}))
-
-app.use(cookieParser());
 
 
 //app.use(express.static( '../public/'));
@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 
 app.post('/',(req, res) => {
     let city = req.body.city;
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=52bca177990ef3a0fafe3e3dbef8fbbc`;
+    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric${apiKey}`;
     console.log(req.body.city);
 
     request(url, (err, response, body) => {
