@@ -1,6 +1,3 @@
-h1 {
-    color: black;
-}
 
 header {
     height: 50vh;
@@ -98,6 +95,10 @@ h1 {
 
 
   @media (min-width: 320px) and (max-width: 680px) {
+    
+    h1 {
+        font-size: 12px;
+    }
   
     form {
         width: 80%;
@@ -109,16 +110,22 @@ h1 {
 
     button {
         height: 40px;
+        width: 230px;
     }
 
     input {
         height: 40px;
+        width: 230px;
     }
 
     .cityHeadLine {
         width: 50%;
         justify-content: space-around;
     }
+
+    form label {
+        font-size: 20px;
+  }
   }
 
 
@@ -138,7 +145,9 @@ h1 {
     header {
         height: 60vh;
     }
-  }
+
+
+}
 
 
   
