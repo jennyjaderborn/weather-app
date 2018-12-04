@@ -26,8 +26,6 @@ app.get('/', (req, res) => {
   })
 
 
-//hide apikey
-
 app.post('/',(req, res) => {
     let city = req.body.city;
     let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric${apiKey}`;
@@ -38,9 +36,9 @@ app.post('/',(req, res) => {
             res.render('index', {weather: null, error: 'Error, please try again'});
         } else {
         let weather = JSON.parse(body);
-        console.log(weather.weather[0].description);
-        if(weather.main == undefined){
-            res.render('index', {weather: null, error: 'Error, please try again'});
+        //console.log(weather.weather[0].description);
+        if(weather.main == undefined || weather == undefined){
+            res.render('index', {weather: null, error: 'your search was not found, please try again'});
           } else {
 
         let weatherText = `It's ${weather.main.temp} degrees in ${weather.name} and ${weather.weather[0].description}!`;
