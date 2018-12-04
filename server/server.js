@@ -60,4 +60,16 @@ app.post('/',(req, res) => {
     }); 
 
 
+    app.use((req, res, next) => {
+        const error = new Error("Not found");
+        error.status = 404;
+        next(error); //next calls the next errorfunction, ??passes error to express
+      });
+      
+      app.use((error, req, res, next) => {
+        res.status(error.status);
+        res.render('error', { error });
+      });
+    
+
 app.listen(port, () => console.log(`App listening on port ${port}!`))
