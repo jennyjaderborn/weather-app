@@ -1,7 +1,11 @@
 header
     form(action='/', method='post')
         label please enter your city
-        input(type='text', name='city')
+        input(type='text', name='city', required='true')
+        select(name='format' required='true' placeholder='dada')
+            option(value='') select temp unit 
+            option(value='c') Celsius
+            option(value='f') Fahrenheit
         button(type='submit') Get the weather! 
             i.fas.fa-globe-americas
     

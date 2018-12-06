@@ -12,6 +12,9 @@ let apiKey = process.env.MY_KEY;
 app.use(bodyParser.urlencoded({extended: false}))
 
 
+//use timestamp converter for sunrise and sunset 
+
+
 //app.use(express.static( '../public/'));
 app.use(express.static(path.join(__dirname, '../public')));
 
@@ -28,20 +31,21 @@ app.get('/', (req, res) => {
 
 app.post('/',(req, res) => {
     let city = req.body.city;
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric${apiKey}`;
-    console.log(req.body.city);
+    let format = req.body.format;
+
+    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metri${format}${apiKey}`;
 
     request(url, (err, response, body) => {
         if(err){
             res.render('index', {weather: null, error: 'Error, please try again'});
         } else {
         let weather = JSON.parse(body);
-        //console.log(weather.weather[0].description);
         if(weather.main == undefined || weather == undefined){
             res.render('index', {weather: null, error: 'your search was not found, please try again'});
           } else {
 
-        let weatherText = `It's ${weather.main.temp} degrees in ${weather.name} and ${weather.weather[0].description}!`;
+        format = format.toUpperCase();
+        let weatherText = `It's ${weather.main.temp}  ${format} º  degrees in ${weather.name} and ${weather.weather[0].description}!`;
 
         let iconId = weather.weather[0].icon;
          icon = `http://openweathermap.org/img/w/${iconId}.png`;
@@ -73,3 +77,4 @@ app.post('/',(req, res) => {
     
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))
+
