@@ -7,11 +7,15 @@ block main
             img(src= flag)
        
         
-        if weather 
+        if weather
             div.weatherBox
-                p= weather
                 img(src= icon)
-            
+                p= weather
+                div.sunBox
+                    if sunset
+                        p #{sunrise} 🌞
+                        p #{sunset} 🌚
+
         if error 
             h1= error
 

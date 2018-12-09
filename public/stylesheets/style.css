@@ -1,7 +1,6 @@
 
 header {
     height: 50vh;
-    /*height: 300px;*/
     background-image: url('../images/dark.jpg');
     width: 100%;
     margin: 0px;
@@ -39,7 +38,7 @@ form {
     display: flex;
     flex-direction: column;
     height: 60%;
-    width: 40vh;
+    width: 60vh;
     background: white;
     border: 1px solid lightgray;
     border-radius: 5px;
@@ -91,6 +90,13 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.sunBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 90%;
 }
 
 

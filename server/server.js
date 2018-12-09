@@ -55,7 +55,19 @@ app.post('/',(req, res) => {
         console.log(weatherText)
         console.log(weather);
 
-        res.render('index', {weather: weatherText, city: weather.name, flag: countryFlag, error: null, icon}); 
+      myTimeConverter = (time) => {
+        let date = new Date(time*1000);
+        let hours = date.getHours();
+        let minutes = "0" + date.getMinutes();
+        return `${hours}:${minutes.substr(-2)}`
+      }
+      let sunrise = myTimeConverter(weather.sys.sunrise)
+      let sunset = myTimeConverter(weather.sys.sunset);
+    
+
+      console.log('SUUUN', sunset, sunrise); 
+
+        res.render('index', {weather: weatherText, city: weather.name, flag: countryFlag, error: null, icon, sunset, sunrise}); 
 
           }
         }
